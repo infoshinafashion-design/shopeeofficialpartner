@@ -1,0 +1,131 @@
+/* Shopee Themed Custom Styling */
+:root {
+  --shopee-orange: #EE4D2D;
+  --shopee-orange-hover: #d73211;
+  --shopee-dark: #222222;
+  --shopee-light-bg: #F5F5F5;
+  --shopee-card-bg: #FFFFFF;
+  --shopee-border: #E8E8E8;
+  --shopee-green: #26AA99;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--shopee-light-bg);
+  color: #333333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #ee4d2d;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d73211;
+}
+
+.shopee-gradient {
+  background: linear-gradient(135deg, #f05d40 0%, #ee4d2d 50%, #e03212 100%);
+}
+
+.shopee-badge-flash {
+  background: linear-gradient(90deg, #ff5722, #ff9800);
+}
+
+.card-shadow {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-shadow:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(238, 77, 45, 0.12);
+}
+
+.aspect-video-custom {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%; /* 1:1 Square Ratio - Standard Foto Produk Shopee */
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 16px 16px 0 0;
+  background-color: #f8f9fa;
+}
+
+@supports (aspect-ratio: 1 / 1) {
+  .aspect-video-custom {
+    padding-bottom: 0;
+  }
+}
+
+.aspect-video-custom img,
+.aspect-video-custom video,
+.aspect-video-custom iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Toast Notification Animation */
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.toast-animate {
+  animation: slideInUp 0.4s ease-out forwards;
+}
+
+.toast-exit {
+  animation: fadeOut 0.4s ease-out forwards;
+}
+
+/* Pulsing Badge */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(238, 77, 45, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(238, 77, 45, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(238, 77, 45, 0);
+  }
+}
+
+.pulse-btn {
+  animation: pulseGlow 2s infinite;
+}
+
+/* Modal Backdrop Blur */
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+}
